@@ -1,4 +1,4 @@
-package com.marcel.baumgardt.FastAndFuriousCinema_FouthWall
+package com.marcel.baumgardt
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
