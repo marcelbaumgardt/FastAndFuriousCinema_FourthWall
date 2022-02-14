@@ -1,4 +1,4 @@
-package com.marcel.baumgardt.FastAndFuriousCinema_FouthWall
+package com.marcel.baumgardt
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
