@@ -30,6 +30,10 @@ class Showing(
     private val movieId: Long,
 
     @Min(0)
+    @Column(name = "sho_price", nullable = false)
+    val price: Double,
+
+    @Min(0)
     @Max(6)
     @Column(name = "sho_day", nullable = false)
     val day: Int,

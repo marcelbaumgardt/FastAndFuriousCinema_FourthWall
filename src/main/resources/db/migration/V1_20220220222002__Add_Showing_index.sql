@@ -1,0 +1,1 @@
+CREATE INDEX sho_cin_mov_id ON dbo.showings (sho_cin_id,sho_mov_id) with(online=on);

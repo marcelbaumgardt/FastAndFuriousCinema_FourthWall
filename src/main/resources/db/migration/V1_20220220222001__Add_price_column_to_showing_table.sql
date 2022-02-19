@@ -1,0 +1,1 @@
+ALTER TABLE dbo.showings ADD sho_price FLOAT NOT NULL DEFAULT 0 CHECK (sho_price >= 0);
