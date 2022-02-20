@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ShowingRepository extends JpaRepository<Long, Showing> {
+public interface ShowingRepository extends JpaRepository<Showing, Long> {
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query(nativeQuery = true,
