@@ -1,7 +1,6 @@
 package com.marcel.baumgardt.connector;
 
 import com.marcel.baumgardt.configuration.local.LocalFeignConfiguration;
-import com.marcel.baumgardt.model.dto.MovieDetail;
 import com.marcel.baumgardt.service.OpenMovieDatabaseService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,7 +23,5 @@ public class OpenMovieDatabaseConnectorIntegrationTest {
 
     @Test
     void shouldGetOpenMovieDatabaseConnector() {
-        MovieDetail movieDetail = openMovieDatabaseService.getMovieDetail();
-        String title = movieDetail.getTitle();
     }
 }

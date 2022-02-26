@@ -17,7 +17,7 @@ public interface ShowingRepository extends JpaRepository<Showing, Long> {
                     "SET sho.sho_price = ?1" +
                     "FROM dbo.showings WITH(index(sho_pk), nolock) " +
                     "WHERE sho.sho_id in (?2) ")
-    void updatePriceOfShowingsByIds(Double price, List<Long> showingIds);
+    int updatePriceOfShowingsByIds(Double price, List<Long> showingIds);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query(nativeQuery = true,
@@ -26,12 +26,20 @@ public interface ShowingRepository extends JpaRepository<Showing, Long> {
                     "FROM dbo.showings WITH(index(sho_cin_mov_id), nolock) " +
                     "WHERE sho.sho_cin_id = ?2) " +
                     "AND sho.sho_mov_id = ?3")
-    void updatePriceOfShowingsByCinemaIdAndMovieId(Double price, Long cinemaId, Long movieId);
+    int updatePriceOfShowingsByCinemaIdAndMovieId(Double price, Long cinemaId, Long movieId);
 
     @Query(nativeQuery = true,
             value = "SELECT sho " +
                     "FROM dbo.showings WITH(index(sho_cin_mov_id), nolock) " +
-                    "WHERE sho.sho_cin_id = ?2) " +
-                    "AND sho.sho_mov_id = ?3")
+                    "WHERE sho.sho_cin_id = ?1) " +
+                    "AND sho.sho_mov_id = ?2")
     List<Showing> getShowingsByCinemaIdAndMovieId(Long cinemaId, Long movieId);
+
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query(nativeQuery = true,
+            value = "DELETE sho " +
+                    "FROM dbo.showings WITH(index(sho_cin_mov_id), nolock) " +
+                    "WHERE sho.sho_cin_id = ?1) " +
+                    "AND sho.sho_mov_id = ?2")
+    int deleteAllByCinemaIdAndMovieId(Long cinemaId, Long movieId);
 }

@@ -17,10 +17,9 @@ public class OpenMovieDatabaseService {
 
     //TODO add max daily limit
     //TODO add retryable
-    public MovieDetail getMovieDetail() {
+    public MovieDetail getMovieDetail(String imdbId) {
 
         String key = "e4f33820";
-        String imdbId = "tt0232500";
         ResponseEntity<OpenMovieDatabaseResponse> response = openMovieDatabaseConnector.getMovieDetails(key, imdbId);
         return openMovieDatabaseResponseMapper.mapToMovieDetail(response.getBody());
     }

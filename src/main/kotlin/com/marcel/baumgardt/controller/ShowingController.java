@@ -6,11 +6,10 @@ import com.marcel.baumgardt.model.dto.UpdateShowingPriceRequest;
 import com.marcel.baumgardt.model.dto.UpdateShowingResponse;
 import com.marcel.baumgardt.service.ShowingService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
+@Log4j2
 @RestController("/api/showing/")
 @RequiredArgsConstructor
 public class ShowingController {
@@ -18,24 +17,33 @@ public class ShowingController {
     private final ShowingService showingService;
 
     @PutMapping("/price")
-    List<UpdateShowingResponse> updatePriceOfShowings(
+    UpdateShowingResponse updatePriceOfShowings(
             @RequestBody UpdateShowingPriceRequest request
     ) {
-        return new ArrayList<>();
+        log.debug("request : {}", request);
+        UpdateShowingResponse response = showingService.updatePrice(request);
+        log.debug("response : {}", response);
+        return response;
     }
 
     @PutMapping("/dates")
-    List<UpdateShowingResponse> updateDatesOfShowings(
+    UpdateShowingResponse updateDatesOfShowings(
             @RequestBody UpdateShowingDatesRequest request
     ) {
-        return new ArrayList<>();
+        log.debug("request : {}", request);
+        UpdateShowingResponse response = showingService.updateDates(request);
+        log.debug("response : {}", response);
+        return response;
     }
 
     @GetMapping("/dates/{cinemaId}/{movieId}")
-    List<ShowingDatesResponse> getDatesOfShowings(
+    ShowingDatesResponse getDatesOfShowings(
             @PathVariable(value = "cinemaId") Long cinemaId,
             @PathVariable(value = "movieId") Long movieId
     ) {
-        return new ArrayList<>();
+        log.debug("cinemaId : {} , movieId : {}", cinemaId, movieId);
+        ShowingDatesResponse response = showingService.getDates(cinemaId, movieId);
+        log.debug("response : {}", response);
+        return response;
     }
 }

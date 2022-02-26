@@ -21,9 +21,6 @@ internal class OpenMovieDatabaseServiceTest {
 
     @Test
     fun shouldGetOpenMovieDatabaseResponse() {
-        val movieDetail = openMovieDatabaseService.movieDetail
-
-        val length = movieDetail.title.length
     }
 
     @Test
