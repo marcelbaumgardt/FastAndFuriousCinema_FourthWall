@@ -10,7 +10,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
 
 @Log4j2
-@RestController("/api/showing/")
+@RestController
+@RequestMapping("/api/showing")
 @RequiredArgsConstructor
 public class ShowingController {
 
@@ -20,9 +21,10 @@ public class ShowingController {
     UpdateShowingResponse updatePriceOfShowings(
             @RequestBody UpdateShowingPriceRequest request
     ) {
-        log.debug("request : {}", request);
+
+        log.debug("Calling update showings price endpoint with request : {} ", request);
         UpdateShowingResponse response = showingService.updatePrice(request);
-        log.debug("response : {}", response);
+        log.debug("Successfully called update showings price endpoint with response: {}", response);
         return response;
     }
 
@@ -30,9 +32,9 @@ public class ShowingController {
     UpdateShowingResponse updateDatesOfShowings(
             @RequestBody UpdateShowingDatesRequest request
     ) {
-        log.debug("request : {}", request);
+        log.debug("Calling update dates price endpoint with request : {} ", request);
         UpdateShowingResponse response = showingService.updateDates(request);
-        log.debug("response : {}", response);
+        log.debug("Successfully called update dates price endpoint with response: {}", response);
         return response;
     }
 
@@ -41,9 +43,9 @@ public class ShowingController {
             @PathVariable(value = "cinemaId") Long cinemaId,
             @PathVariable(value = "movieId") Long movieId
     ) {
-        log.debug("cinemaId : {} , movieId : {}", cinemaId, movieId);
+        log.debug("Calling get dates of showings endpoint by cinemaId : {} and movieId {}", cinemaId, movieId);
         ShowingDatesResponse response = showingService.getDates(cinemaId, movieId);
-        log.debug("response : {}", response);
+        log.debug("Successfully called get dates of showings endpoint with response: {}", response);
         return response;
     }
 }

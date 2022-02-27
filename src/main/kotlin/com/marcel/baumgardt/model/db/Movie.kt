@@ -27,7 +27,7 @@ class Movie(
     @Min(1)
     @Max(5)
     @Column(name = "mov_rate")
-    val rate: Double,
+    val rate: Double?,
 
     /**
      * This field is filled up during insert operation by the database itself (with GETDATE()) and shouldn't be filled manually.

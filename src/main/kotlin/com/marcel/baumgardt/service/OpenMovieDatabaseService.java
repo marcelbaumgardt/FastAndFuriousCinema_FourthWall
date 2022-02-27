@@ -19,6 +19,7 @@ public class OpenMovieDatabaseService {
     //TODO add retryable
     public MovieDetail getMovieDetail(String imdbId) {
 
+        //TODO FTHW-101 - Hide key
         String key = "e4f33820";
         ResponseEntity<OpenMovieDatabaseResponse> response = openMovieDatabaseConnector.getMovieDetails(key, imdbId);
         return openMovieDatabaseResponseMapper.mapToMovieDetail(response.getBody());

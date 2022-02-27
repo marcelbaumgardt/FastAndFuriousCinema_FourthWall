@@ -1,10 +1,6 @@
-package com.marcel.baumgardt.model.dto;
+package com.marcel.baumgardt.model.dto
 
-import lombok.Builder;
-
-@Builder
-public class MovieDetailResponse {
-    MovieDetailResponseStatus status;
-    @Builder.Default
-    MovieDetail movieDetail = null;
-}
+class MovieDetailResponse(
+    val status: MovieDetailResponseStatus,
+    val movieDetail: MovieDetail? = null
+)

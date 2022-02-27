@@ -35,6 +35,13 @@ public interface ShowingRepository extends JpaRepository<Showing, Long> {
                     "AND sho.sho_mov_id = ?2")
     List<Showing> getShowingsByCinemaIdAndMovieId(Long cinemaId, Long movieId);
 
+    @Query(nativeQuery = true,
+            value = "SELECT count(sho) " +
+                    "FROM dbo.showings WITH(index(sho_cin_mov_id), nolock) " +
+                    "WHERE sho.sho_cin_id = ?1) " +
+                    "AND sho.sho_mov_id = ?2")
+    int countShowingsByCinemaIdAndMovieId(Long cinemaId, Long movieId);
+
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query(nativeQuery = true,
             value = "DELETE sho " +

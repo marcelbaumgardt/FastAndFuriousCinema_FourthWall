@@ -1,10 +1,7 @@
-package com.marcel.baumgardt.model.dto;
+package com.marcel.baumgardt.model.dto
 
 
-import lombok.Builder;
-
-@Builder
-public class UpdateShowingResponse {
-    private UpdateShowingResponseStatus status;
-    private int affectedEntities;
-}
+class UpdateShowingResponse(
+    private val status: UpdateShowingResponseStatus,
+    private val affectedEntities: Int = 0
+)

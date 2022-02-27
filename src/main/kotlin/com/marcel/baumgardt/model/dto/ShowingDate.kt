@@ -1,14 +1,8 @@
-package com.marcel.baumgardt.model.dto;
+package com.marcel.baumgardt.model.dto
 
-import lombok.Builder;
-import lombok.Data;
+import java.time.OffsetTime
 
-import java.time.OffsetTime;
-import java.util.List;
-
-@Data
-@Builder
-public class ShowingDate {
-    private Integer day;
-    private List<OffsetTime> timeList;
-}
+class ShowingDate(
+    val day: Int,
+    val timeList: List<OffsetTime>
+)

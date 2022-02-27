@@ -1,5 +1,5 @@
-package com.marcel.baumgardt.model.dto;
+package com.marcel.baumgardt.model.dto
 
-public enum MovieDetailResponseStatus {
+enum class MovieDetailResponseStatus {
     MOVIE_NOT_FOUND_IN_DATABASE, SUCCESS
 }

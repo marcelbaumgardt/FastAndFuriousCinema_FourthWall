@@ -1,12 +1,12 @@
-package com.marcel.baumgardt.model.dto;
+package com.marcel.baumgardt.model.dto
 
-import lombok.Builder;
-
-import java.util.List;
+import lombok.Builder
 
 @Builder
-public class ShowingDatesResponse {
-    private Long cinemaId;
-    private Long movieId;
-    private List<ShowingDate> dates;
-}
+class ShowingDatesResponse(
+    private val cinemaId: Long,
+    private val cinemaName: String,
+    private val movieId: Long,
+    private val movieTitle: String,
+    private val dates: List<ShowingDate>
+)

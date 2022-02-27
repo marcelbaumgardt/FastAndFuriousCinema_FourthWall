@@ -21,7 +21,7 @@ public class MovieServiceImpl implements MovieService {
         Optional<Movie> movieOpt = movieRepository.findById(movieId);
 
         return movieOpt
-                .map(movieDetailResponseMapper::getMovieDetailResponse)
-                .orElseGet(movieDetailResponseMapper::getErrorMovieDetailResponse);
+                .map(movieDetailResponseMapper::getMovieDetailSuccessfulResponse)
+                .orElseGet(movieDetailResponseMapper::getMovieDetailNoFoundResponse);
     }
 }
