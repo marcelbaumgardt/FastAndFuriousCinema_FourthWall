@@ -92,7 +92,7 @@ And have the following response:
 You can use the following API key for this exercise (or create your own):
 
 ```
-e4f33820
+------
 ```
 
 **Note:** Since this is a secure API key, please do **not** include it in your repository if you post this to GitHub, etc. Rather, your `README.md` should detail instructions for how to supply this value.

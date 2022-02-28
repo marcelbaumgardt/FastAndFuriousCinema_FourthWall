@@ -1,4 +1,4 @@
-package com.marcel.baumgardt.model.dto
+package com.marcel.baumgardt.model.dto.common
 
 class MovieDetail(
     val title: String,
@@ -6,7 +6,7 @@ class MovieDetail(
     val actors: Set<String>,
     val averageRatingScore: Double,
     val metaScore: Int,
-    val boxOfficeValue: Long,
     val boxOfficeCurrency: String,
+    val boxOfficeValue: Long
 )
 

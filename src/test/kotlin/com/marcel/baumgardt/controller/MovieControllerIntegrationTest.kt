@@ -6,7 +6,7 @@ import com.marcel.baumgardt.TestConstants.Companion.GET_MOVIE_DETAIL_URL
 import com.marcel.baumgardt.TestConstants.Companion.SUCCESSFUL_MOVIE_ID
 import com.marcel.baumgardt.TestUtils.Companion.createNotFoundMovieDetailResponse
 import com.marcel.baumgardt.TestUtils.Companion.createSuccessfulMovieDetailResponse
-import com.marcel.baumgardt.model.dto.MovieDetailResponse
+import com.marcel.baumgardt.model.dto.response.MovieDetailResponse
 import lombok.RequiredArgsConstructor
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

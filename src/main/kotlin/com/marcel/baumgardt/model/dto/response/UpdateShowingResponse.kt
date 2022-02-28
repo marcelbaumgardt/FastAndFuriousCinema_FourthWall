@@ -1,7 +1,7 @@
-package com.marcel.baumgardt.model.dto
+package com.marcel.baumgardt.model.dto.response
 
 
-class UpdateShowingResponse(
+data class UpdateShowingResponse(
     private val status: UpdateShowingResponseStatus,
     private val affectedEntities: Int = 0
 )

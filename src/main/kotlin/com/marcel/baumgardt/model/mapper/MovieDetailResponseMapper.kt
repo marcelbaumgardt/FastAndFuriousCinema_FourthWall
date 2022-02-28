@@ -1,21 +1,14 @@
 package com.marcel.baumgardt.model.mapper
 
-import com.marcel.baumgardt.model.db.Movie
-import com.marcel.baumgardt.model.dto.MovieDetailResponse
-import com.marcel.baumgardt.model.dto.MovieDetailResponseStatus
-import com.marcel.baumgardt.service.OpenMovieDatabaseService
-import lombok.RequiredArgsConstructor
+import com.marcel.baumgardt.model.dto.common.MovieDetail
+import com.marcel.baumgardt.model.dto.response.MovieDetailResponse
+import com.marcel.baumgardt.model.dto.response.MovieDetailResponseStatus
 import org.springframework.stereotype.Component
 
 @Component
-@RequiredArgsConstructor
-abstract class MovieDetailResponseMapper {
+class MovieDetailResponseMapper {
 
-    abstract val openMovieDatabaseService: OpenMovieDatabaseService
-
-    fun getMovieDetailSuccessfulResponse(movie: Movie): MovieDetailResponse {
-        val movieDetail = openMovieDatabaseService.getMovieDetail(movie.imdbId)
-
+    fun getMovieDetailSuccessfulResponse(movieDetail: MovieDetail): MovieDetailResponse {
         return MovieDetailResponse(
             MovieDetailResponseStatus.SUCCESS,
             movieDetail

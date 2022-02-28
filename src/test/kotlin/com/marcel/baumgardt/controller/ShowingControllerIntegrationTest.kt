@@ -11,10 +11,10 @@ import com.marcel.baumgardt.TestUtils.Companion.createShowingDatesResponse
 import com.marcel.baumgardt.TestUtils.Companion.createSuccessfulUpdateShowingDatesRequest
 import com.marcel.baumgardt.TestUtils.Companion.createSuccessfulUpdateShowingResponse
 import com.marcel.baumgardt.TestUtils.Companion.createUpdateShowingPriceRequest
-import com.marcel.baumgardt.model.dto.ShowingDatesResponse
-import com.marcel.baumgardt.model.dto.UpdateShowingDatesRequest
-import com.marcel.baumgardt.model.dto.UpdateShowingPriceRequest
-import com.marcel.baumgardt.model.dto.UpdateShowingResponse
+import com.marcel.baumgardt.model.dto.request.UpdateShowingDatesRequest
+import com.marcel.baumgardt.model.dto.request.UpdateShowingPriceRequest
+import com.marcel.baumgardt.model.dto.response.ShowingDatesResponse
+import com.marcel.baumgardt.model.dto.response.UpdateShowingResponse
 import com.marcel.baumgardt.repository.ShowingRepository
 import lombok.RequiredArgsConstructor
 import org.junit.jupiter.api.Assertions

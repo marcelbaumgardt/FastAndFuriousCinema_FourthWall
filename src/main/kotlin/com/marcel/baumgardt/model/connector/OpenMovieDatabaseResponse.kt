@@ -2,7 +2,6 @@ package com.marcel.baumgardt.model.connector
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-//TODO STH is wrong with types, why only String ?
 class OpenMovieDatabaseResponse(
     @JsonProperty("Title")
     val title: String,

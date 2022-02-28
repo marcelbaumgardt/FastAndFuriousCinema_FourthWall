@@ -16,7 +16,11 @@ import com.marcel.baumgardt.TestConstants.Companion.SUCCESSFUL_CINEMA_NAME
 import com.marcel.baumgardt.TestConstants.Companion.SUCCESSFUL_MOVIE_ID
 import com.marcel.baumgardt.TestConstants.Companion.SUCCESSFUL_MOVIE_TITLE
 import com.marcel.baumgardt.TestConstants.Companion.WRITER
-import com.marcel.baumgardt.model.dto.*
+import com.marcel.baumgardt.model.dto.common.MovieDetail
+import com.marcel.baumgardt.model.dto.common.ShowingDate
+import com.marcel.baumgardt.model.dto.request.UpdateShowingDatesRequest
+import com.marcel.baumgardt.model.dto.request.UpdateShowingPriceRequest
+import com.marcel.baumgardt.model.dto.response.*
 import lombok.RequiredArgsConstructor
 
 @RequiredArgsConstructor
@@ -95,8 +99,8 @@ abstract class TestUtils {
                 ACTORS,
                 AVERAGE_RATING_SCORE,
                 META_SCORE,
-                BOX_OFFICE_VALUE,
-                BOX_OFFICE_CURRENCY
+                BOX_OFFICE_CURRENCY,
+                BOX_OFFICE_VALUE
             )
         }
     }

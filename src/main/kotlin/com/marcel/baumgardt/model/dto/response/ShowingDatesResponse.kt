@@ -1,9 +1,8 @@
-package com.marcel.baumgardt.model.dto
+package com.marcel.baumgardt.model.dto.response
 
-import lombok.Builder
+import com.marcel.baumgardt.model.dto.common.ShowingDate
 
-@Builder
-class ShowingDatesResponse(
+data class ShowingDatesResponse(
     private val cinemaId: Long,
     private val cinemaName: String,
     private val movieId: Long,

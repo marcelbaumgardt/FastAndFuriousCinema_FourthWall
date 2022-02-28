@@ -9,11 +9,6 @@ import javax.validation.constraints.Min
 @Entity
 @Table(name = "movies", schema = "dbo")
 class Movie(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mov_id")
-    val id: Long,
-
     //TODO Check length
     @Length(max = 50)
     @Column(name = "mov_title", nullable = false)
@@ -27,17 +22,22 @@ class Movie(
     @Min(1)
     @Max(5)
     @Column(name = "mov_rate")
-    val rate: Double?,
+    val rate: Double?
+) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "mov_id")
+    val id: Long = 0
 
     /**
      * This field is filled up during insert operation by the database itself (with GETDATE()) and shouldn't be filled manually.
      */
     @Column(name = "mov_insert_date", nullable = false, insertable = false, updatable = false)
-    val insertDate: Timestamp,
+    lateinit var insertDate: Timestamp
 
     /**
      * This field is filled up during insert and update operation by the DB trigger
      */
     @Column(name = "mov_modification_date", nullable = false, insertable = false, updatable = false)
-    val modificationDate: Timestamp,
-)
+    lateinit var modificationDate: Timestamp
+}
