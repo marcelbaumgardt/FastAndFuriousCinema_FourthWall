@@ -3,6 +3,7 @@ package com.marcel.baumgardt.configuration.local
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.WireMock
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import com.google.common.net.HttpHeaders
 import lombok.extern.log4j.Log4j2
 import org.springframework.beans.factory.annotation.Value
@@ -26,9 +27,9 @@ class LocalFeignConfiguration {
         @Value("\${request.id.port}") port: Int,
         @Value("\${fafc4w.openMovieDatabase.test.json.url}") testJsonUrl: String,
     ): WireMockServer {
-        val requestIdServer = WireMockServer(port)
+        val requestIdServer = WireMockServer(options().dynamicPort())
         requestIdServer.stubFor(
-            WireMock.get(WireMock.urlPathEqualTo("/"))
+            WireMock.get(WireMock.urlPathEqualTo(""))
                 .willReturn(
                     WireMock.aResponse()
                         .withBody(

@@ -1,11 +1,9 @@
 package com.marcel.baumgardt.service
 
-import com.marcel.baumgardt.TestConstants.Companion.IMDB_ID
-import com.marcel.baumgardt.TestConstants.Companion.SUCCESSFUL_MOVIE_ID
+import com.marcel.baumgardt.TestConstants.IMDB_ID
+import com.marcel.baumgardt.TestConstants.SUCCESSFUL_MOVIE_ID
 import com.marcel.baumgardt.TestUtils
-import com.marcel.baumgardt.TestUtils.Companion.createMovieDetail
-import com.marcel.baumgardt.TestUtils.Companion.createNotFoundMovieDetailResponse
-import com.marcel.baumgardt.TestUtils.Companion.createSuccessfulMovieDetailResponse
+import com.marcel.baumgardt.TestUtils.*
 import com.marcel.baumgardt.model.mapper.MovieDetailResponseMapper
 import com.marcel.baumgardt.repository.MovieRepository
 import com.marcel.baumgardt.service.interfaces.MovieService

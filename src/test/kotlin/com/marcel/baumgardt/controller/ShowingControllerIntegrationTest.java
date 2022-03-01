@@ -1,7 +1,6 @@
 package com.marcel.baumgardt.controller;
 
 import com.marcel.baumgardt.IntegrationTest;
-import com.marcel.baumgardt.TestUtils;
 import com.marcel.baumgardt.model.dto.request.UpdateShowingDatesRequest;
 import com.marcel.baumgardt.model.dto.request.UpdateShowingPriceRequest;
 import com.marcel.baumgardt.model.dto.response.ShowingDatesResponse;
@@ -15,6 +14,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MvcResult;
 
 import static com.marcel.baumgardt.TestConstants.*;
+import static com.marcel.baumgardt.TestUtils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -27,15 +27,15 @@ public class ShowingControllerIntegrationTest extends IntegrationTest {
     void setup() {
         //TODO this approach should be changed
         showingRepository.deleteAll();
-        showingRepository.saveAll(TestUtils.Companion.createShowings());
+        showingRepository.saveAll(createShowings());
     }
 
     @WithMockUser(username = "admin", authorities = {"ADMIN"})
     @Test
     void shouldSuccessfullyUpdatePriceOfShowingsAsAdmin() throws Exception {
-        UpdateShowingPriceRequest request = TestUtils.Companion.createUpdateShowingPriceRequest();
+        UpdateShowingPriceRequest request = createUpdateShowingPriceRequest();
         int affectedRows = getAffectedRows(request.getCinemaId(), request.getMovieId());
-        UpdateShowingResponse expected = TestUtils.Companion.createSuccessfulUpdateShowingResponse(affectedRows);
+        UpdateShowingResponse expected = createSuccessfulUpdateShowingResponse(affectedRows);
 
         MvcResult mvcResult = performPutRequest(UPDATE_SHOWINGS_PRICE_URL, request);
         UpdateShowingResponse actual = getResponseObject(mvcResult, UpdateShowingResponse.class);
@@ -53,9 +53,9 @@ public class ShowingControllerIntegrationTest extends IntegrationTest {
     @Test
     void shouldSuccessfullyUpdateDatesOfShowings() throws Exception {
 
-        UpdateShowingDatesRequest request = TestUtils.Companion.createSuccessfulUpdateShowingDatesRequest();
+        UpdateShowingDatesRequest request = createSuccessfulUpdateShowingDatesRequest();
 
-        UpdateShowingResponse expected = TestUtils.Companion.createNoEntitiesAffectedShowingResponse();
+        UpdateShowingResponse expected = createNoEntitiesAffectedShowingResponse();
 
         MvcResult mvcResult = performPutRequest(UPDATE_SHOWINGS_DATES_URL, request);
         UpdateShowingResponse actual = getResponseObject(mvcResult, UpdateShowingResponse.class);
@@ -66,9 +66,9 @@ public class ShowingControllerIntegrationTest extends IntegrationTest {
     @WithMockUser(username = "admin", authorities = {"ADMIN"})
     @Test
     void shouldSuccessfullyClearOldUpdateDatesOfShowings() throws Exception {
-        UpdateShowingDatesRequest request = TestUtils.Companion.createClearOldSuccessfulUpdateShowingDatesRequest();
+        UpdateShowingDatesRequest request = createClearOldSuccessfulUpdateShowingDatesRequest();
         int affectedRows = getAffectedRows(request.getCinemaId(), request.getMovieId());
-        UpdateShowingResponse expected = TestUtils.Companion.createSuccessfulUpdateShowingResponse(affectedRows);
+        UpdateShowingResponse expected = createSuccessfulUpdateShowingResponse(affectedRows);
 
         MvcResult mvcResult = performPutRequest(UPDATE_SHOWINGS_PRICE_URL, request);
         UpdateShowingResponse actual = getResponseObject(mvcResult, UpdateShowingResponse.class);
@@ -79,7 +79,7 @@ public class ShowingControllerIntegrationTest extends IntegrationTest {
     @WithMockUser(username = "user", authorities = {"USER"})
     @Test
     void shouldGerDatesOfShowingsByCinemaIdAndMovieId() throws Exception {
-        ShowingDatesResponse expected = TestUtils.Companion.createShowingDatesResponse();
+        ShowingDatesResponse expected = createShowingDatesResponse();
 
         MvcResult mvcResult = performGetRequest(GET_SHOWING_DATES_URL, SUCCESSFUL_CINEMA_ID, SUCCESSFUL_MOVIE_ID);
         ShowingDatesResponse actual = getResponseObject(mvcResult, ShowingDatesResponse.class);

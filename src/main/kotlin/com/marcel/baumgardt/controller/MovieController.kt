@@ -28,6 +28,8 @@ class MovieController(
         return ResponseEntity.ok(response)
     }
 
+//    An endpoint in which their customers (i.e. moviegoers) can leave a review rating (from 1-5 stars) about a particular movie
+
     companion object {
         private val log = LogManager.getLogger()
     }

@@ -21,7 +21,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
-@SpringBootTest()
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @ActiveProfiles("local")
 @ExtendWith(SpringExtension.class)
