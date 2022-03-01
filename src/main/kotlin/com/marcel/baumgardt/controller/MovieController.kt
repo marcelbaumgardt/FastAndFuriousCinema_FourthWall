@@ -23,7 +23,7 @@ class MovieController(
         @PathVariable movieId: Long
     ): ResponseEntity<MovieDetailResponse> {
         log.info("Calling get movie detail endpoint with movieId : {} ", movieId)
-        val response = movieService.getMovieDetails(movieId)
+        val response = movieService.getMovieDetailResponse(movieId)
         log.info("Successfully called get movie detail endpoint with response: {}", response.toString())
         return ResponseEntity.ok(response)
     }

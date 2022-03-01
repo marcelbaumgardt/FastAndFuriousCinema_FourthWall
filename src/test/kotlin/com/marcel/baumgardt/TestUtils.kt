@@ -8,6 +8,7 @@ import com.marcel.baumgardt.TestConstants.Companion.BERLIN_TIME_16_00
 import com.marcel.baumgardt.TestConstants.Companion.BOX_OFFICE_CURRENCY
 import com.marcel.baumgardt.TestConstants.Companion.BOX_OFFICE_VALUE
 import com.marcel.baumgardt.TestConstants.Companion.FRIDAY
+import com.marcel.baumgardt.TestConstants.Companion.IMDB_ID
 import com.marcel.baumgardt.TestConstants.Companion.META_SCORE
 import com.marcel.baumgardt.TestConstants.Companion.MONDAY
 import com.marcel.baumgardt.TestConstants.Companion.NEW_PRICE
@@ -16,12 +17,16 @@ import com.marcel.baumgardt.TestConstants.Companion.SUCCESSFUL_CINEMA_NAME
 import com.marcel.baumgardt.TestConstants.Companion.SUCCESSFUL_MOVIE_ID
 import com.marcel.baumgardt.TestConstants.Companion.SUCCESSFUL_MOVIE_TITLE
 import com.marcel.baumgardt.TestConstants.Companion.WRITER
+import com.marcel.baumgardt.model.connector.OpenMovieDatabaseResponse
+import com.marcel.baumgardt.model.db.Movie
+import com.marcel.baumgardt.model.db.Showing
 import com.marcel.baumgardt.model.dto.common.MovieDetail
 import com.marcel.baumgardt.model.dto.common.ShowingDate
 import com.marcel.baumgardt.model.dto.request.UpdateShowingDatesRequest
 import com.marcel.baumgardt.model.dto.request.UpdateShowingPriceRequest
 import com.marcel.baumgardt.model.dto.response.*
 import lombok.RequiredArgsConstructor
+import java.util.*
 
 @RequiredArgsConstructor
 
@@ -37,6 +42,12 @@ abstract class TestUtils {
             )
         }
 
+        fun createEmptyMovieDetailResponse(): MovieDetailResponse {
+            return MovieDetailResponse(
+                MovieDetailResponseStatus.EMPTY_RESPONSE
+            )
+        }
+
         fun createNotFoundMovieDetailResponse(): MovieDetailResponse {
             return MovieDetailResponse(
                 MovieDetailResponseStatus.MOVIE_NOT_FOUND_IN_DATABASE
@@ -47,6 +58,13 @@ abstract class TestUtils {
             return UpdateShowingResponse(
                 UpdateShowingResponseStatus.UPDATED,
                 affectedRows
+            )
+        }
+
+        fun createNoEntitiesAffectedShowingResponse(): UpdateShowingResponse {
+            return UpdateShowingResponse(
+                UpdateShowingResponseStatus.NO_ENTITIES_AFFECTED,
+                0
             )
         }
 
@@ -78,7 +96,7 @@ abstract class TestUtils {
         private fun createShowingDates(): List<ShowingDate> {
             return ImmutableList.of(
                 ShowingDate(MONDAY, ImmutableList.of(BERLIN_TIME_15_00, BERLIN_TIME_16_00)),
-                ShowingDate(FRIDAY, ImmutableList.of(BERLIN_TIME_15_00))
+                ShowingDate(FRIDAY, ImmutableList.of(BERLIN_TIME_16_00))
             )
         }
 
@@ -92,7 +110,7 @@ abstract class TestUtils {
             )
         }
 
-        private fun createMovieDetail(): MovieDetail {
+        fun createMovieDetail(): MovieDetail {
             return MovieDetail(
                 SUCCESSFUL_MOVIE_TITLE,
                 WRITER,
@@ -102,6 +120,33 @@ abstract class TestUtils {
                 BOX_OFFICE_CURRENCY,
                 BOX_OFFICE_VALUE
             )
+        }
+
+        fun createShowings(): List<Showing> {
+            return listOf(
+                Showing(SUCCESSFUL_CINEMA_ID, SUCCESSFUL_MOVIE_ID, MONDAY, BERLIN_TIME_15_00),
+                Showing(SUCCESSFUL_CINEMA_ID, SUCCESSFUL_MOVIE_ID, MONDAY, BERLIN_TIME_16_00),
+                Showing(SUCCESSFUL_CINEMA_ID, SUCCESSFUL_MOVIE_ID, FRIDAY, BERLIN_TIME_16_00)
+            )
+        }
+
+        fun createOpenMovieDatabaseResponse(): OpenMovieDatabaseResponse? {
+            //TODO
+            return null
+        }
+
+        fun createPresentMovieOpt(): Optional<Movie> {
+            return Optional.of(
+                Movie(
+                    SUCCESSFUL_MOVIE_TITLE,
+                    IMDB_ID,
+                    0.0
+                )
+            )
+        }
+
+        fun createEmptyMovieOpt(): Optional<Movie> {
+            return Optional.empty()
         }
     }
 }

@@ -14,14 +14,16 @@ class MovieServiceImpl(
     val movieDetailResponseMapper: MovieDetailResponseMapper
 ) : MovieService {
 
-    override fun getMovieDetails(movieId: Long): MovieDetailResponse {
+    override fun getMovieDetailResponse(movieId: Long): MovieDetailResponse {
         val movieOpt = movieRepository.findById(movieId)
-        return movieOpt
-            .map { movie: Movie -> getMovieDetailSuccessfulResponse(movie) }
-            .orElseGet { movieDetailResponseMapper.getMovieDetailNoFoundResponse() }
+        return if (movieOpt.isPresent) {
+            this.getMovieDetailResponse(movieOpt.get())
+        } else {
+            movieDetailResponseMapper.getMovieDetailNoFoundResponse()
+        }
     }
 
-    private fun getMovieDetailSuccessfulResponse(movie: Movie): MovieDetailResponse {
+    private fun getMovieDetailResponse(movie: Movie): MovieDetailResponse {
         val movieDetail = openMovieDatabaseService.getMovieDetail(movie.imdbId)
         return if (movieDetail != null) {
             movieDetailResponseMapper.getMovieDetailSuccessfulResponse(movieDetail)

@@ -2,7 +2,6 @@ package com.marcel.baumgardt
 
 import com.google.common.collect.ImmutableSet
 import java.time.OffsetTime
-import java.time.ZoneId
 import java.time.ZoneOffset
 
 class TestConstants {
@@ -16,19 +15,21 @@ class TestConstants {
         const val SUCCESSFUL_CINEMA_ID = 1L
         const val SUCCESSFUL_MOVIE_TITLE = "The Fast and the Furious"
         const val SUCCESSFUL_MOVIE_ID = 1L
+        const val IMDB_ID = "tt0232500"
         const val ERROR_MOVIE_ID = 999L
-        const val WRITER = ""
-        val ACTORS = ImmutableSet.of<String>("Paul Walker", "Vin Diesel", "Michelle Rodriguez", "Jordana Brewster")
+        const val WRITER = "Ken Li, Gary Scott Thompson, Erik Bergquist"
+        val ACTORS: ImmutableSet<String> =
+            ImmutableSet.of("Paul Walker", "Vin Diesel", "Michelle Rodriguez", "Jordana Brewster")
         const val AVERAGE_RATING_SCORE = 0.6
         const val META_SCORE = 58
-        const val BOX_OFFICE_VALUE = 142542950L
+        const val BOX_OFFICE_VALUE = 144533925L
         const val BOX_OFFICE_CURRENCY = "USD"
-        private val BERLIN_ZONE_ID: ZoneOffset = ZoneOffset.of(ZoneId.of("Europe/Berlin").id)
+        private val BERLIN_ZONE_ID: ZoneOffset = ZoneOffset.of("+01:00")
         const val MONDAY = 1
         const val FRIDAY = 5
         const val NEW_PRICE = 10.50
         val BERLIN_TIME_15_00: OffsetTime = OffsetTime.of(15, 0, 0, 0, BERLIN_ZONE_ID)
-        val BERLIN_TIME_16_00: OffsetTime = OffsetTime.of(15, 0, 0, 0, BERLIN_ZONE_ID)
+        val BERLIN_TIME_16_00: OffsetTime = OffsetTime.of(16, 0, 0, 0, BERLIN_ZONE_ID)
     }
 
 }
