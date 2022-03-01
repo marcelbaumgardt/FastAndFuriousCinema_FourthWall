@@ -2,7 +2,6 @@ package com.marcel.baumgardt.controller
 
 import com.marcel.baumgardt.model.dto.response.MovieDetailResponse
 import com.marcel.baumgardt.service.interfaces.MovieService
-import lombok.RequiredArgsConstructor
 import lombok.extern.log4j.Log4j2
 import org.apache.logging.log4j.LogManager
 import org.springframework.http.MediaType
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController
 @Log4j2
 @RestController
 @RequestMapping(value = ["/api/movie"], produces = [MediaType.APPLICATION_JSON_VALUE])
-@RequiredArgsConstructor
 class MovieController(
     val movieService: MovieService
 ) {

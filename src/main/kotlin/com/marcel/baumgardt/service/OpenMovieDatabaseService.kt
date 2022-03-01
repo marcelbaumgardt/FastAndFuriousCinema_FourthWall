@@ -22,7 +22,6 @@ class OpenMovieDatabaseService(
         this.openMovieDatabaseResponseMapper = openMovieDatabaseResponseMapper
     }
 
-
     fun getMovieDetail(imdbId: String): MovieDetail {
         val response = openMovieDatabaseConnector.getMovieDetails(apiKey, imdbId)
         return openMovieDatabaseResponseMapper.mapToMovieDetail(response.body!!)

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*
 
 @Log4j2
 @RestController
-@RequestMapping(value = ["/api/showings"], produces = [MediaType.APPLICATION_JSON_VALUE])
+@RequestMapping(value = ["/api/showing"], produces = [MediaType.APPLICATION_JSON_VALUE])
 class ShowingController(
     val showingService: ShowingService
 ) {
