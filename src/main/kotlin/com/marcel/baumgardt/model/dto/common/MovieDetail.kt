@@ -1,6 +1,6 @@
 package com.marcel.baumgardt.model.dto.common
 
-class MovieDetail(
+data class MovieDetail(
     val title: String,
     val writer: String,
     val actors: Set<String>,

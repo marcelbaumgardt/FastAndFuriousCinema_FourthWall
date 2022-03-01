@@ -23,6 +23,11 @@ class MovieServiceImpl(
 
     private fun getMovieDetailSuccessfulResponse(movie: Movie): MovieDetailResponse {
         val movieDetail = openMovieDatabaseService.getMovieDetail(movie.imdbId)
-        return movieDetailResponseMapper.getMovieDetailSuccessfulResponse(movieDetail)
+        return if (movieDetail != null) {
+            movieDetailResponseMapper.getMovieDetailSuccessfulResponse(movieDetail)
+        } else {
+            movieDetailResponseMapper.getMovieDetailEmptyResponse()
+        }
+
     }
 }

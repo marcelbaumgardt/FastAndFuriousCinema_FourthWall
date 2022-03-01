@@ -20,4 +20,10 @@ class MovieDetailResponseMapper {
             MovieDetailResponseStatus.MOVIE_NOT_FOUND_IN_DATABASE,
         )
     }
+
+    fun getMovieDetailEmptyResponse(): MovieDetailResponse {
+        return MovieDetailResponse(
+            MovieDetailResponseStatus.EMPTY_RESPONSE,
+        )
+    }
 }
