@@ -17,6 +17,7 @@ RUN
 * Run project with profile "local"
 
 * with command : mvn spring-boot:run -Dspring-boot.run.profiles=local -DOMD_API_KEY={yourApiKey}
+* to run tests use command : mvn clean install -Dspring-boot.run.profiles=local -DOMD_API_KEY={yourApiKey}
 
 SWAGGER
 
