@@ -1,4 +1,4 @@
-# FastAndFuriousCinema_FouthWall
+# FastAndFuriousCinema_FourthWall
 
 FourthWall - Backend Coding Challenge
 
@@ -43,27 +43,27 @@ THE CHOICE I'VE MADE
 
 TODO
 
-1) Rename project ...
-2) Change .properties to .yaml
-3) Add daily limit to open movie database connector
-4) Add more detailed description in Controllers (Swagger)
-5) Consider extract insertDate and modificationDate to external class
-6) Add logging to services
+1) Change .properties to .yaml
+2) Add daily limit to open movie database connector
+3) Add more detailed description in Controllers (Swagger)
+4) Consider extract insertDate and modificationDate to external class
+5) Add logging to services
+6) Add day enum instead int value
 7) Upgrade methods in OpenMovieDatabaseResponseMapper
 
 * mapToBoxOfficePairCurrencyValue
 * unifyDoubleValue
 
-8) Add hints to queries, simillar to mssql (with(index,nolock))
-9) Add Dockerfile and docker-compose.yml
-10) Add pipeline and automaticly update project version
-11) Add prometheus metrics
-12) Increase cover ration
-13) Add OWASP library to pipeline (or sth simillar)
-14) Change extension of integration tests to .kt
-15) Add documentation .adoc
-16) Add security endpoints (restart password etc.)
-17) Check cyclic dependencies
-18) Analyze dependencies (remove unused, resolve conflicts)
-19) Check plan of sql queries
-20) Analyze app with JMeter
+7) Add hints to queries, simillar to mssql (with(index,nolock))
+8) Add Dockerfile and docker-compose.yml
+9) Add pipeline and automaticly update project version
+10) Add prometheus metrics
+11) Increase cover ration
+12) Add OWASP library to pipeline (or sth simillar)
+13) Change extension of integration tests to .kt
+14) Add documentation .adoc
+15) Add security endpoints (restart password etc.)
+16) Check cyclic dependencies
+17) Analyze dependencies (remove unused, resolve conflicts)
+18) Check plan of sql queries
+19) Analyze app with JMeter

@@ -11,10 +11,10 @@
 	</parent>
 
 	<groupId>com.marcel.baumgardt</groupId>
-	<artifactId>FastAndFuriousCinema_FouthWall</artifactId>
+	<artifactId>FastAndFuriousCinema_FourthWall</artifactId>
 <!--	TODO Add Jenkins relase pipeline and block master branch-->
 	<version>1.0.0</version>
-	<name>FastAndFuriousCinema_FouthWall</name>
+	<name>FastAndFuriousCinema_FourthWall</name>
 	<description>FourthWall - Backend Coding Challenge</description>
 
 	<properties>
