@@ -20,18 +20,25 @@ RUN
 
 SWAGGER
 
-Bearer
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjQ2MTg0MzMzfQ.tdKKCLOEy5or13KXkyWQxRIopdDfMAB57O_gFXpXXtc
-
 * local address : http://localhost:8080/swagger-ui.html
+
+* to log in use /login endpoint with credential
+* username : user, password : test (role: USER)
+* username : admin, password : test (role: ADMIN)
+* then copy bearer token (for example : Bearer
+  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjQ2MTg0MzMzfQ.tdKKCLOEy5or13KXkyWQxRIopdDfMAB57O_gFXpXXtc)
+* and paste to Authorization input at the top of page
 
 THE CHOICE I'VE MADE
 
 1) Spring/Spring Boot - I use it in my daily work
 2) Kotlin/Java - Kotlin is not my first choice but I used it to learn a bit at the same time. I had a problem with tests
    in Kotlin so I wrote them in Java
-4) Feign client - Easy to read and understand
-7) Spring Security - JWT Token - Easy to configure
+3) Feign client - Easy to read and understand
+4) Spring Security - JWT Token - Easy to configure
+5) Maven
+6) Postgres
+7) Flyway
 
 TODO
 
@@ -55,3 +62,7 @@ TODO
 14) Change extension of integration tests to .kt
 15) Add documentation .adoc
 16) Add security endpoints (restart password etc.)
+17) Check cyclic dependencies
+18) Analyze dependencies (remove unused, resolve conflicts)
+19) Check plan of sql queries
+20) Analyze app with JMeter
