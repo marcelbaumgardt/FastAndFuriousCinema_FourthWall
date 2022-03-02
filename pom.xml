@@ -13,8 +13,7 @@
 	<groupId>com.marcel.baumgardt</groupId>
 	<artifactId>FastAndFuriousCinema_FouthWall</artifactId>
 <!--	TODO Add Jenkins relase pipeline and block master branch-->
-	<version>0.0.1-SNAPSHOT</version>
-	<!--	TODO Fix typo-->
+	<version>1.0.0</version>
 	<name>FastAndFuriousCinema_FouthWall</name>
 	<description>FourthWall - Backend Coding Challenge</description>
 
