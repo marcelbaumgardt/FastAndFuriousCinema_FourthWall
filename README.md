@@ -20,6 +20,9 @@ RUN
 
 SWAGGER
 
+Bearer
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjQ2MTg0MzMzfQ.tdKKCLOEy5or13KXkyWQxRIopdDfMAB57O_gFXpXXtc
+
 * local address : http://localhost:8080/swagger-ui.html
 
 THE CHOICE I'VE MADE

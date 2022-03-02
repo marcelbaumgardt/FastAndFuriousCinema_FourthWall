@@ -8,6 +8,14 @@ import org.springframework.stereotype.Component
 @Component
 class MovieDetailResponseMapper {
 
+    fun mapToMovieDetailResponse(movieDetail: MovieDetail?): MovieDetailResponse {
+        return if (movieDetail != null) {
+            getMovieDetailSuccessfulResponse(movieDetail)
+        } else {
+            getMovieDetailEmptyResponse()
+        }
+    }
+
     fun getMovieDetailSuccessfulResponse(movieDetail: MovieDetail): MovieDetailResponse {
         return MovieDetailResponse(
             MovieDetailResponseStatus.SUCCESS,

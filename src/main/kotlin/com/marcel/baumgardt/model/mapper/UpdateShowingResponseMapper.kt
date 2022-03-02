@@ -1,20 +1,18 @@
 package com.marcel.baumgardt.model.mapper
 
+import com.marcel.baumgardt.model.dto.response.UpdateResponseStatus
 import com.marcel.baumgardt.model.dto.response.UpdateShowingResponse
-import com.marcel.baumgardt.model.dto.response.UpdateShowingResponseStatus
-import lombok.RequiredArgsConstructor
 import org.springframework.stereotype.Component
 
 @Component
-@RequiredArgsConstructor
 class UpdateShowingResponseMapper {
 
     fun mapToUpdateShowingResponse(count: Int): UpdateShowingResponse {
-        return if (count == 0) getUpdateShowingResponse(count, UpdateShowingResponseStatus.NO_ENTITIES_AFFECTED)
-        else getUpdateShowingResponse(count, UpdateShowingResponseStatus.UPDATED)
+        return if (count == 0) getUpdateShowingResponse(count, UpdateResponseStatus.NO_ENTITIES_AFFECTED)
+        else getUpdateShowingResponse(count, UpdateResponseStatus.UPDATED)
     }
 
-    private fun getUpdateShowingResponse(count: Int, status: UpdateShowingResponseStatus): UpdateShowingResponse {
+    private fun getUpdateShowingResponse(count: Int, status: UpdateResponseStatus): UpdateShowingResponse {
         return UpdateShowingResponse(
             status,
             count

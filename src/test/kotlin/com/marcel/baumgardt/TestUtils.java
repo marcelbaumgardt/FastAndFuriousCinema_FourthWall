@@ -44,12 +44,12 @@ public class TestUtils {
 
     @NotNull
     public static UpdateShowingResponse createSuccessfulUpdateShowingResponse(int affectedRows) {
-        return new UpdateShowingResponse(UpdateShowingResponseStatus.UPDATED, affectedRows);
+        return new UpdateShowingResponse(UpdateResponseStatus.UPDATED, affectedRows);
     }
 
     @NotNull
     public static UpdateShowingResponse createNoEntitiesAffectedShowingResponse() {
-        return new UpdateShowingResponse(UpdateShowingResponseStatus.NO_ENTITIES_AFFECTED, 0);
+        return new UpdateShowingResponse(UpdateResponseStatus.NO_ENTITIES_AFFECTED, 0);
     }
 
     @NotNull

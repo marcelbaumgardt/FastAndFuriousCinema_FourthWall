@@ -16,8 +16,7 @@ interface ShowingRepository : JpaRepository<Showing, Long> {
     @Query(
         nativeQuery = true, value = "UPDATE dbo.showings " +
                 "SET sho_price = ?1 " +
-                "FROM dbo.showings sho " +
-                "WHERE sho.sho_id in (?2)"
+                "WHERE sho_id in (?2)"
     )
     fun updatePriceOfShowingsByIds(price: Double, showingIds: List<Long>): Int
 
@@ -26,9 +25,8 @@ interface ShowingRepository : JpaRepository<Showing, Long> {
     @Query(
         nativeQuery = true, value = "UPDATE dbo.showings " +
                 "SET sho_price = ?1 " +
-                "FROM dbo.showings sho " +
-                "WHERE sho.sho_cin_id = ?2 " +
-                "AND sho.sho_mov_id = ?3"
+                "WHERE sho_cin_id = ?2 " +
+                "AND sho_mov_id = ?3"
     )
     fun updatePriceOfShowingsByCinemaIdAndMovieId(price: Double, cinemaId: Long, movieId: Long): Int
 

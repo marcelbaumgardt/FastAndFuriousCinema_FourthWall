@@ -9,9 +9,12 @@ import lombok.extern.log4j.Log4j2
 import org.apache.logging.log4j.LogManager
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @Log4j2
+@Validated
 @RestController
 @RequestMapping(value = ["/api/showing"], produces = [MediaType.APPLICATION_JSON_VALUE])
 class ShowingController(
@@ -28,6 +31,7 @@ class ShowingController(
         return ResponseEntity.ok(response)
     }
 
+    @Valid
     @PutMapping("/dates")
     fun updateDatesOfShowings(
         @RequestBody request: UpdateShowingDatesRequest

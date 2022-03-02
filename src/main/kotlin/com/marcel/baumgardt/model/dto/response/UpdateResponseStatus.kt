@@ -1,5 +1,5 @@
 package com.marcel.baumgardt.model.dto.response
 
-enum class UpdateShowingResponseStatus {
+enum class UpdateResponseStatus {
     UPDATED, NO_ENTITIES_AFFECTED
 }
